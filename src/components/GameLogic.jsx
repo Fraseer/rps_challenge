@@ -17,8 +17,22 @@ const gameWinner = (computerChoice, playerChoice) => {
   let playerOption = playerChoice
   let winner
 
-  if (compOption === "scissors" && playerOption === "paper"){
+  if (compOption === "rock" && playerOption === "scissors"){
     winner = "computer"
+  } else if (compOption === "paper" && playerOption === "rock"){
+    winner = "computer"
+  } else if (compOption === "scissors" && playerOption === "paper" ){
+    winner = "computer"
+  } else  if (compOption === "rock" && playerOption === "paper"){
+    winner = "player"
+  } else if (compOption === "paper" && playerOption === "scissors"){
+    winner = "player"
+  } else if (compOption === "scissors" && playerOption === "rock" ){
+    winner = "player"
+  } else if (compOption === playerOption){
+    winner = "draw"
   }
-
+  return winner
 }
+
+export default {gameWinner, computerChoice}
