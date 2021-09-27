@@ -1,20 +1,21 @@
-const computerChoice = () => {
-  let compResult;
-  let compChoice = Math.floor(Math.random() * 3)
+// const computerChoice = () => {
+//   let compResult;
+//   let compChoice = Math.floor(Math.random() * 3)
 
-  if (compChoice == 0) {
-    compResult = "rock"
-  } else if (compChoice == 1) {
-    compResult = "paper"
-  } else if (compChoice == 2) {
-    compResult = "scissors"
-  }
-  return compResult
-}
+//   if (compChoice == 0) {
+//     compResult = "rock"
+//   } else if (compChoice == 1) {
+//     compResult = "paper"
+//   } else if (compChoice == 2) {
+//     compResult = "scissors"
+//   }
+//   return compResult
+// }
 
-const gameWinner = (computerChoice, playerChoice) => {
-  let compOption = computerChoice
-  let playerOption = playerChoice
+const gameWinner = (playerOption) => {
+  let options = ["rock", "paper", "scissors"];
+  var compOption = options[Math.floor(Math.random() * options.length)];
+  console.log(compOption)
   let winner
 
   if (compOption === "rock" && playerOption === "scissors"){
@@ -35,4 +36,4 @@ const gameWinner = (computerChoice, playerChoice) => {
   return winner
 }
 
-export default {gameWinner, computerChoice}
+export default {gameWinner}

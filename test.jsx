@@ -1,0 +1,1 @@
+let compOption = Math.floor(Math.random() * options.length);
