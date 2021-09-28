@@ -7,6 +7,8 @@ const Game = () => {
     return gameWinner(choice)
   } 
 
+  // useState
+
   return (
     <Container>
       <h1 data-cy="game-header">Game On!</h1>
