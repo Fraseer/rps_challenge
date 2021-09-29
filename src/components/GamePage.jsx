@@ -1,22 +1,19 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Button, Container } from "semantic-ui-react";
 // import { gameWinner } from "./GameLogic";
 
 const Game = () => {
   const [playerOption, setPlayerOption] = useState();
-  // const [compOption]
   let options = ["rock", "paper", "scissors"];
   let compOption = options[Math.floor(Math.random() * options.length)];
-  let winner ;
+  let winner;
 
   const playerDecision = (Option) => {
-    setPlayerOption(Option)
-    return gameWinner(playerOption)
+    setPlayerOption(Option);
+    return gameWinner(playerOption);
   };
 
-  const gameWinner = (playerOption) => {
-    console.log(compOption);
-  
+  const gameWinner = () => {
     if (compOption === "rock" && playerOption === "scissors") {
       winner = "computer wins";
     } else if (compOption === "paper" && playerOption === "rock") {
@@ -32,10 +29,9 @@ const Game = () => {
     } else if (compOption === playerOption) {
       winner = "draw";
     }
-    console.log(winner)
-    return winner;
+    return [winner];
   };
-  
+
   return (
     <Container>
       <h1 data-cy="game-header">Game On!</h1>
@@ -45,13 +41,16 @@ const Game = () => {
       <Button data-cy="paper-button" onClick={() => playerDecision("paper")}>
         Paper
       </Button>
-      <Button data-cy="scissors-button" onClick={() => playerDecision("scissors")}>
+      <Button
+        data-cy="scissors-button"
+        onClick={() => playerDecision("scissors")}
+      >
         Scissors
       </Button>
-      <br /> 
+      <br />
       Player: {playerOption} <br />
       Computer: {compOption} <br />
-      Result: {gameWinner}
+      Result: {gameWinner(playerOption)}
     </Container>
   );
 };
