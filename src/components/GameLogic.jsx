@@ -1,16 +1,3 @@
-// const computerChoice = () => {
-//   let compResult;
-//   let compChoice = Math.floor(Math.random() * 3)
-
-//   if (compChoice == 0) {
-//     compResult = "rock"
-//   } else if (compChoice == 1) {
-//     compResult = "paper"
-//   } else if (compChoice == 2) {
-//     compResult = "scissors"
-//   }
-//   return compResult
-// }
 const gameWinner = (playerOption) => {
   let options = ["rock", "paper", "scissors"];
   var compOption = options[Math.floor(Math.random() * options.length)];
@@ -36,4 +23,4 @@ const gameWinner = (playerOption) => {
   return winner;
 };
 
-export { gameWinner };
+export {gameWinner};
