@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Button, Container } from "semantic-ui-react";
-// import { gameWinner } from "./GameLogic";
+import { Button, Container, List } from "semantic-ui-react";
 
 const Game = () => {
   const [playerOption, setPlayerOption] = useState();
@@ -15,19 +14,19 @@ const Game = () => {
 
   const gameWinner = () => {
     if (compOption === "rock" && playerOption === "scissors") {
-      winner = "computer wins";
+      winner = "Computer Wins!";
     } else if (compOption === "paper" && playerOption === "rock") {
-      winner = "computer wins";
+      winner = "Computer Wins!";
     } else if (compOption === "scissors" && playerOption === "paper") {
-      winner = "computer wins";
+      winner = "Computer Wins!";
     } else if (compOption === "rock" && playerOption === "paper") {
-      winner = "player wins";
+      winner = "Player Wins!";
     } else if (compOption === "paper" && playerOption === "scissors") {
-      winner = "player wins";
+      winner = "Player Wins!";
     } else if (compOption === "scissors" && playerOption === "rock") {
-      winner = "player wins";
+      winner = "Player Wins!";
     } else if (compOption === playerOption) {
-      winner = "draw";
+      winner = "It's a draw!";
     }
     return [winner];
   };
@@ -47,10 +46,11 @@ const Game = () => {
       >
         Scissors
       </Button>
-      <br />
-      Player: {playerOption} <br />
-      Computer: {compOption} <br />
-      Result: {gameWinner(playerOption)}
+      <List>
+        <List.Item data-cy="player-option"> Player: {playerOption} </List.Item>
+        <List.Item data-cy="computer-option"> Computer: {compOption} </List.Item>
+        <List.Item data-cy="result"> Result: {gameWinner(playerOption)}</List.Item>
+      </List>
     </Container>
   );
 };
