@@ -11,7 +11,8 @@ describe("The Game Page", () => {
     cy.get("[data-cy=scissors-button]").should("exist");
   });
 
-  it("is expected that the score card for player and the computer is visible")
-  cy.get("[data-cy=player-score-card]").should("be.visible");
-  cy.get("[data-cy=player-score-card]").should("be.visible");
+  it("is expected that the score card for player and the computer is visible", () => {
+    cy.get("[data-cy=player-score-card]").should("be.visible");
+    cy.get("[data-cy=player-score-card]").should("be.visible");
+  });
 });

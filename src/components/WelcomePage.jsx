@@ -6,7 +6,7 @@ const Welcome = () => {
   return (
     <Container>
       <h1 data-cy="welcome-header">Welcome To The ROCK, PAPER, SCISSORS Game</h1>
-      <Button data-cy="play-button" as={Link} to={{ pathname: "/gamepage" }}>
+      <Button circular data-cy="play-button" as={Link} to={{ pathname: "/gamepage" }}>
         Play Game!
       </Button>
     </Container>
