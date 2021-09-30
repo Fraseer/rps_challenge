@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { Button, Container, List } from "semantic-ui-react";
+import { button, Container, List, Image } from "semantic-ui-react";
 
 const Game = () => {
   const [playerOption, setPlayerOption] = useState();
   let options = ["rock", "paper", "scissors"];
   let compOption = options[Math.floor(Math.random() * options.length)];
-  
+
   const playerDecision = (Option) => {
     setPlayerOption(Option);
     return gameWinner(playerOption);
   };
-  
+
   const gameWinner = () => {
     let winner;
     if (compOption === "rock" && playerOption === "scissors") {
@@ -32,24 +32,35 @@ const Game = () => {
   };
 
   return (
-    <Container>
+    <Container textAlign="center">
       <h1 data-cy="game-header">Game On!</h1>
-      <Button data-cy="rock-button" onClick={() => playerDecision("rock")}>
-        Rock
-      </Button>
-      <Button data-cy="paper-button" onClick={() => playerDecision("paper")}>
-        Paper
-      </Button>
-      <Button
+      <button data-cy="rock-button" onClick={() => playerDecision("rock")}>
+        <Image
+          src="https://image.shutterstock.com/image-vector/pile-boulders-rocks-260nw-60307183.jpg"
+          size="small"
+        ></Image>
+      </button>
+      <button data-cy="paper-button" onClick={() => playerDecision("paper")}>
+        <Image
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREALCV4PXDrTnrpHs-pQEkNG5HYqMod6i7zg&usqp=CAU"
+          size="small"
+        ></Image>
+      </button>
+      <button
         data-cy="scissors-button"
         onClick={() => playerDecision("scissors")}
       >
-        Scissors
-      </Button>
+        <Image
+          src="https://img1.pnghut.com/3/13/3/DxggERCLCj/scissors-haircutting-shears-cutting.jpg"
+          size="small"
+        ></Image>
+      </button>
       <List>
         <List.Item data-cy="player-option"> Player: {playerOption} </List.Item>
-        <List.Item data-cy="computer-option"> Computer: {compOption} </List.Item>
-        <List.Item data-cy="result"> Result: {gameWinner(playerOption)}</List.Item>
+        <List.Item data-cy="computer-option">Computer: {compOption}</List.Item>
+        <List.Item data-cy="result">
+          Result: {gameWinner(playerOption)}
+        </List.Item>
       </List>
     </Container>
   );
