@@ -7,7 +7,7 @@ describe("When a game is won", () => {
     });
   });
 
-  it.only("by the computer is expected that the computer score card will add one", () => {
+  it("by the computer is expected that the computer score card will add one", () => {
     cy.get("[data-cy=scissors-button]").click();
     cy.get("[data-cy=computer-score-card]").should("contain", 1)
   })
