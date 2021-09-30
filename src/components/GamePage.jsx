@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, List, Image } from "semantic-ui-react";
+import { Container, ls, Image, Card } from "semantic-ui-react";
 
 const Game = () => {
   const [playerOption, setPlayerOption] = useState();
@@ -40,6 +40,24 @@ const Game = () => {
           size="small"
         ></Image>
       </button>
+      <Card centered raised>
+        <ul>
+          <br />
+          <li data-cy="player-option" size="large">
+            {" "}
+            Player: {playerOption}{" "}
+          </li>{" "}
+          <br />
+          <li data-cy="computer-option" size="large">
+            Computer: {compOption}
+          </li>{" "}
+          <br />
+          <li data-cy="result" size="large">
+            Result: {gameWinner(playerOption)}
+          </li>{" "}
+          <br />
+        </ul>
+      </Card>
       <button data-cy="paper-button" onClick={() => playerDecision("paper")}>
         <Image
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREALCV4PXDrTnrpHs-pQEkNG5HYqMod6i7zg&usqp=CAU"
@@ -55,13 +73,6 @@ const Game = () => {
           size="small"
         ></Image>
       </button>
-      <List>
-        <List.Item data-cy="player-option"> Player: {playerOption} </List.Item>
-        <List.Item data-cy="computer-option">Computer: {compOption}</List.Item>
-        <List.Item data-cy="result">
-          Result: {gameWinner(playerOption)}
-        </List.Item>
-      </List>
     </Container>
   );
 };
