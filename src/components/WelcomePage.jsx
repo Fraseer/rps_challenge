@@ -1,15 +1,18 @@
 import React from "react";
-import { Container, Button, Header } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+import { Container } from "semantic-ui-react";
 
 const Welcome = () => {
   return (
-    <Container color="red" textAlign="center" padded size="massive" raised>
-      <Header data-cy="welcome-header">Lets Play ROCK, PAPER, SCISSORS</Header>
-      <Button data-cy="play-button" as={Link} to={{ pathname: "/gamepage" }}>
-        Play Game!
-      </Button>
+    <div top="20px">
+    <Container textAlign="center">
+      <h1 className="headers" data-cy="welcome-header">
+        Lets Play ROCK, PAPER, SCISSORS
+      </h1>
+      <a href="/gamepage" className="btn" data-cy="play-button">
+        Start Game!
+      </a>
     </Container>
+    </div>
   );
 };
 
