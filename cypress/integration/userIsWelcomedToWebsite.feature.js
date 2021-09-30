@@ -1,6 +1,6 @@
 describe("The Welcome Page of the game", () => {
   it("is expected to successfully render", () => {
-    cy.visit("http://localhost:3000");
+    cy.visit("/");
     cy.get("[data-cy=welcome-header]").should(
       "contain",
       "Welcome To The ROCK, PAPER, SCISSORS Game"
