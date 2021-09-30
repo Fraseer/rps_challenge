@@ -5,14 +5,14 @@ const Game = () => {
   const [playerOption, setPlayerOption] = useState();
   let options = ["rock", "paper", "scissors"];
   let compOption = options[Math.floor(Math.random() * options.length)];
-  let winner;
-
+  
   const playerDecision = (Option) => {
     setPlayerOption(Option);
     return gameWinner(playerOption);
   };
-
+  
   const gameWinner = () => {
+    let winner;
     if (compOption === "rock" && playerOption === "scissors") {
       winner = "Computer Wins!";
     } else if (compOption === "paper" && playerOption === "rock") {
