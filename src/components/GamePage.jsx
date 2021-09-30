@@ -12,6 +12,7 @@ const Game = () => {
   const playGame = (Option) => {
     randomChoice()
     playerDecision(Option)
+    scoreCard()
   }
 
   const randomChoice = () => {
@@ -42,17 +43,15 @@ const Game = () => {
     return winner;
   };
 
-  // const scoreCard = () => {
-  //   // let result = "banana";
-  //   // return result;
-  //   if (gameWinner(playerOption) === "Player Wins!") {
-  //     setPlayerScore(playerScore + 1);
-  //     return playerScore;
-  //   } else if (gameWinner(playerOption) === "Computer Wins!") {
-  //     setComputerScore(computerScore + 1);
-  //     return computerScore;
-  //   }
-  // };
+  const scoreCard = () => {
+    if (gameWinner(playerOption) === "Player Wins!") {
+      setPlayerScore(playerScore + 1);
+      return playerScore;
+    } else if (gameWinner(playerOption) === "Computer Wins!") {
+      setComputerScore(computerScore + 1);
+      return computerScore;
+    }
+  };
 
 
   // useEffect(() => {
@@ -67,7 +66,7 @@ const Game = () => {
 
   return (
     <Container textAlign="center">
-      <h1 class="headers" data-cy="game-header">
+      <h1 className="headers" data-cy="game-header">
         Game On!
       </h1>
       <Segment data-cy="player-score-card" textAlign="left">
