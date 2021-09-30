@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Welcome = () => {
   return (
     <Container>
-      <h1 data-cy="welcome-header">Welcome To The ROCK, PAPER, SCISSORS Game</h1>
+      <h1 data-cy="welcome-header">Lets Play ROCK, PAPER, SCISSORS</h1>
       <Button circular data-cy="play-button" as={Link} to={{ pathname: "/gamepage" }}>
         Play Game!
       </Button>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Container, List, Segment } from "semantic-ui-react";
 
 const Game = () => {
@@ -11,7 +11,6 @@ const Game = () => {
 
   const playerDecision = (Option) => {
     setPlayerOption(Option);
-    return gameWinner(playerOption);
   };
 
   const gameWinner = () => {
@@ -31,24 +30,31 @@ const Game = () => {
     } else if (compOption === playerOption) {
       winner = "It's a draw!";
     }
-    return [winner];
+    return winner;
   };
 
   // const scoreCard = () => {
-  //   if (gameWinner === "Player Wins!") {
+  //   // let result = "banana";
+  //   // return result;
+  //   if (gameWinner(playerOption) === "Player Wins!") {
   //     setPlayerScore(playerScore + 1);
-  //     return setPlayerScore;
-  //   } else if (gameWinner === "Computer Wins!") {
-  //     setComputerScore(playerScore + 1);
-  //     return setComputerScore;
-  //   } else if (gameWinner === "Its a draw!") {
+  //     return playerScore;
+  //   } else if (gameWinner(playerOption) === "Computer Wins!") {
+  //     setComputerScore(computerScore + 1);
+  //     return computerScore;
   //   }
   // };
 
-  const scoreCard = () => {
-    setPlayerScore(playerScore + 1);
-    return setPlayerScore;
-  };
+
+  useEffect(() => {
+    if (gameWinner(playerOption) === "Player Wins!") {
+      setPlayerScore(playerScore + 1);
+      return playerScore;
+    } else if (gameWinner(playerOption) === "Computer Wins!") {
+      setComputerScore(computerScore + 1);
+      return computerScore;
+    }
+  }, []);
 
   return (
     <Container>
@@ -56,7 +62,7 @@ const Game = () => {
       <Segment data-cy="player-score-card">
         Player Score Card <br />
         Score : {playerScore}
-        <button onClick={() => scoreCard(playerScore + 1)}>Click me</button>
+        {/* <button onClick={() => scoreCard(playerScore + 1)}>Click me</button> */}
       </Segment>
       <Segment data-cy="computer-score-card" textAlign="right">
         Computer Score Card
@@ -76,12 +82,8 @@ const Game = () => {
       </Button>
       <List>
         <List.Item data-cy="player-option"> Player: {playerOption} </List.Item>
-        <List.Item data-cy="computer-option">
-          {" "}
-          Computer: {compOption}{" "}
-        </List.Item>
+        <List.Item data-cy="computer-option">Computer: {compOption} </List.Item>
         <List.Item data-cy="result">
-          {" "}
           Result: {gameWinner(playerOption)}
         </List.Item>
       </List>

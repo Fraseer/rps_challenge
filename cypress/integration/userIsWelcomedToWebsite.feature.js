@@ -3,7 +3,7 @@ describe("The Welcome Page of the game", () => {
     cy.visit("/");
     cy.get("[data-cy=welcome-header]").should(
       "contain",
-      "Welcome To The ROCK, PAPER, SCISSORS Game"
+      "Lets Play ROCK, PAPER, SCISSORS"
     );
     cy.get("[data-cy=play-button]").should("exist");
   });
