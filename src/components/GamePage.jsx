@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, ls, Image, Card } from "semantic-ui-react";
+import { Container, Image, Card } from "semantic-ui-react";
 
 const Game = () => {
   const [playerOption, setPlayerOption] = useState();
