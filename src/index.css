@@ -54,3 +54,24 @@ ul {
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
   border-bottom: none;
 }
+
+.score-cards {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 25px;
+  font-weight: bold;
+  color: #33a3c5
+}
+
+.comp-s-c {
+  position: absolute;
+  top: 70px;
+  right: 15px;
+}
+
+.player-s-c {
+  position: absolute;
+  top: 70px;
+  left: 15px;
+}
