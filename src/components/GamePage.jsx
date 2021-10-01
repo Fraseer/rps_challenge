@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Container, Image, Card, Segment } from "semantic-ui-react";
+import paper from "../images/paper.png"
+import rock from "../images/rock.png"
+import scissors from "../images/scissors.png"
 
+ 
 const Game = () => {
   const [playerOption, setPlayerOption] = useState();
   const [compOption, setCompOption] = useState();
@@ -53,17 +57,6 @@ const Game = () => {
     }
   };
 
-
-  // useEffect(() => {
-  //   if (gameWinner(playerOption) === "Player Wins!") {
-  //     setPlayerScore(playerScore + 1);
-  //     return playerScore;
-  //   } else if (gameWinner(playerOption) === "Computer Wins!") {
-  //     setComputerScore(computerScore + 1);
-  //     return computerScore;
-  //   }
-  // }, []);
-
   return (
     <Container textAlign="center">
       <h1 className="headers" data-cy="game-header">
@@ -80,7 +73,7 @@ const Game = () => {
       </Segment>
       <button data-cy="rock-button" onClick={() => playGame("Rock")}>
         <Image
-          src="https://image.shutterstock.com/image-vector/pile-boulders-rocks-260nw-60307183.jpg"
+          src={rock}
           size="medium"
         ></Image>
       </button>
@@ -104,7 +97,8 @@ const Game = () => {
       </Card>
       <button data-cy="paper-button" onClick={() => playGame("Paper")}>
         <Image
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREALCV4PXDrTnrpHs-pQEkNG5HYqMod6i7zg&usqp=CAU"
+          src={paper}
+          // https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREALCV4PXDrTnrpHs-pQEkNG5HYqMod6i7zg&usqp=CAU
           size="medium"
         ></Image>
       </button>
@@ -113,7 +107,7 @@ const Game = () => {
         onClick={() => playGame("Scissors")}
       >
         <Image
-          src="https://img1.pnghut.com/3/13/3/DxggERCLCj/scissors-haircutting-shears-cutting.jpg"
+          src={scissors}
           size="medium"
         ></Image>
       </button>
