@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { Container, Image, Card, Segment } from "semantic-ui-react";
-import paper from "../images/paper.png"
-import rock from "../images/rock.png"
-import scissors from "../images/scissors.png"
+import { Container, Image, Card } from "semantic-ui-react";
+import paper from "../images/paper.png";
+import rock from "../images/rock.png";
+import scissors from "../images/scissors.png";
 
- 
 const Game = () => {
   const [playerOption, setPlayerOption] = useState();
   const [compOption, setCompOption] = useState();
@@ -14,10 +13,10 @@ const Game = () => {
   let options = ["Rock", "Paper", "Scissors"];
 
   const playGame = (Option) => {
-    randomChoice()
-    playerDecision(Option)
-    scoreCard()
-  }
+    randomChoice();
+    playerDecision(Option);
+    scoreCard();
+  };
 
   const randomChoice = () => {
     setCompOption(options[Math.floor(Math.random() * options.length)]);
@@ -62,20 +61,25 @@ const Game = () => {
       <h1 className="headers" data-cy="game-header">
         Game On!
       </h1>
-      <Segment data-cy="player-score-card" textAlign="left">
-        Player Score Card <br />
-        Score : {playerScore}
-        {/* <button onClick={() => scoreCard(playerScore + 1)}>Click me</button> */}
-      </Segment>
-      <Segment data-cy="computer-score-card" textAlign="right">
-        Computer Score Card
-        <br /> {computerScore} : Score
-      </Segment>
+      <div className="score-cards">
+        <div className="player-s-c">
+          <Card data-cy="player-score-card" centered raised>
+            <br />
+            <li>Player Score Card</li> <br />
+            <li>Score : {playerScore}</li>
+            <br />
+          </Card>
+        </div>
+        <div className="comp-s-c">
+          <Card data-cy="computer-score-card" centered raised>
+            <br />
+            <li>Computer Score Card</li> <br />
+            <li>{computerScore} : Score </li> <br />
+          </Card>
+        </div>
+      </div>
       <button data-cy="rock-button" onClick={() => playGame("Rock")}>
-        <Image
-          src={rock}
-          size="medium"
-        ></Image>
+        <Image src={rock} size="medium"></Image>
       </button>
       <Card centered raised>
         <ul>
@@ -102,14 +106,8 @@ const Game = () => {
           size="medium"
         ></Image>
       </button>
-      <button
-        data-cy="scissors-button"
-        onClick={() => playGame("Scissors")}
-      >
-        <Image
-          src={scissors}
-          size="medium"
-        ></Image>
+      <button data-cy="scissors-button" onClick={() => playGame("Scissors")}>
+        <Image src={scissors} size="medium"></Image>
       </button>
     </Container>
   );
